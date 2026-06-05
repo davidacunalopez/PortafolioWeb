@@ -450,6 +450,56 @@ ul { list-style: none; }
 .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
 .project-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 
+/* ===== EXPERIENCE TIMELINE ===== */
+.timeline { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
+.timeline-item { display: grid; grid-template-columns: 24px 1fr; gap: 1.5rem; align-items: start; }
+.timeline-dot {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--gradient);
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+  box-shadow: 0 0 16px rgba(108,99,255,0.5);
+}
+.timeline-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  transition: var(--transition);
+}
+.timeline-card:hover { border-color: rgba(108,99,255,0.4); transform: translateX(4px); }
+.timeline-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.timeline-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; }
+.timeline-company { font-size: 0.85rem; color: var(--accent); font-weight: 500; }
+.timeline-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; padding: 0.25rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 99px; }
+.timeline-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+.timeline-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+/* ===== EDUCATION ===== */
+.edu__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3rem; }
+.edu-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+.edu-card:hover { border-color: rgba(108,99,255,0.4); transform: translateY(-3px); }
+.edu-card__icon { font-size: 2rem; flex-shrink: 0; }
+.edu-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+.edu-card__school { display: block; font-size: 0.8rem; color: var(--accent); font-weight: 500; margin-bottom: 0.2rem; }
+.edu-card__date { display: block; font-size: 0.75rem; color: var(--text-muted); }
+
 /* ===== CONTACT ===== */
 .contact__inner {
   max-width: 700px;
@@ -504,6 +554,7 @@ ul { list-style: none; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
+  .edu__grid { grid-template-columns: 1fr; }
   .hero { flex-direction: column; text-align: center; padding-top: 9rem; }
   .hero__content { max-width: 100%; }
   .hero__subtitle { max-width: 100%; }
@@ -518,6 +569,10 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
+  .timeline-item { grid-template-columns: 1fr; }
+  .timeline-dot { display: none; }
+  .timeline-card__header { flex-direction: column; }
+  .edu__grid { grid-template-columns: 1fr; }
   .nav__links, .nav__cta { display: none; }
   .nav__burger { display: flex; }
   .section { padding: 5rem 0; }
