@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Acuña — Portafolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">DA<span class="accent">.</span></div>
+    <ul class="nav__links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav__cta" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contáctame</button>
+    <button class="nav__burger" id="burger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__bg">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="blob blob--3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__tag">
+        <span class="dot"></span> Disponible para trabajar
+      </div>
+      <h1 class="hero__title">
+        Hola, soy<br />
+        <span class="gradient-text">David Acuña</span>
+      </h1>
+      <p class="hero__subtitle">Desarrollador web apasionado por crear experiencias digitales modernas, funcionales y visualmente atractivas.</p>
+      <div class="hero__actions">
+        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn--ghost">Hablemos →</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num">+10</span>
+          <span class="stat__label">Proyectos</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">3+</span>
+          <span class="stat__label">Años exp.</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">100%</span>
+          <span class="stat__label">Dedicación</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__image">
+      <div class="hero__img-wrapper">
+        <img src="Imagenes/Perfil.jpg" alt="David Acuña" />
+        <div class="hero__img-ring"></div>
+        <div class="hero__img-ring hero__img-ring--2"></div>
+      </div>
+      <div class="hero__card hero__card--1">
+        <span class="card-icon">⚡</span>
+        <span>Desarrollo Web</span>
+      </div>
+      <div class="hero__card hero__card--2">
+        <span class="card-icon">🎨</span>
+        <span>UI / UX</span>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="about section" id="sobre-mi">
+    <div class="container">
+      <div class="section-label">Sobre mí</div>
+      <div class="about__grid">
+        <div class="about__photos">
+          <div class="about__photo about__photo--main">
+            <img src="Imagenes/_DSC1251.jpg" alt="David" />
+          </div>
+          <div class="about__photo about__photo--secondary">
+            <img src="Imagenes/_DSC1344.jpg" alt="David" />
+          </div>
+          <div class="about__photo about__photo--third">
+            <img src="Imagenes/_DSC1411.jpg" alt="David" />
+          </div>
+        </div>
+        <div class="about__text">
+          <h2 class="section-title">Creando con<br /><span class="gradient-text">pasión y propósito</span></h2>
+          <p>Soy un desarrollador web con enfoque en construir productos digitales que combinan un código limpio con un diseño impactante. Me apasiona la intersección entre tecnología y creatividad.</p>
+          <p>Trabajo con las herramientas más modernas del ecosistema web para entregar soluciones rápidas, accesibles y escalables.</p>
+          <div class="about__tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">CSS / Tailwind</span>
+            <span class="tag">Git & GitHub</span>
+            <span class="tag">Figma</span>
+          </div>
+          <a href="#contacto" class="btn btn--primary" style="margin-top:2rem; display:inline-flex;">Trabajemos juntos →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="skills section" id="habilidades">
+    <div class="container">
+      <div class="section-label">Habilidades</div>
+      <h2 class="section-title">Stack <span class="gradient-text">tecnológico</span></h2>
+      <div class="skills__bento">
+
+        <div class="bento-card bento-card--wide reveal">
+          <div class="bento-card__label">Frontend</div>
+          <div class="skill-bars">
+            <div class="skill-bar">
+              <div class="skill-bar__info"><span>HTML / CSS</span><span>95%</span></div>
+              <div class="skill-bar__track"><div class="skill-bar__fill" data-w="95"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar__info"><span>JavaScript</span><span>85%</span></div>
+              <div class="skill-bar__track"><div class="skill-bar__fill" data-w="85"></div></div>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar__info"><span>React</span><span>80%</span></div>
+              <div class="skill-bar__track"><div class="skill-bar__fill" data-w="80"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-card reveal">
+          <div class="bento-card__label">Backend</div>
+          <div class="skill-icons">
+            <div class="skill-icon">Node.js</div>
+            <div class="skill-icon">Express</div>
+            <div class="skill-icon">SQL</div>
+            <div class="skill-icon">REST API</div>
+          </div>
+        </div>
+
+        <div class="bento-card reveal">
+          <div class="bento-card__label">Diseño</div>
+          <div class="skill-icons">
+            <div class="skill-icon">Figma</div>
+            <div class="skill-icon">Photoshop</div>
+            <div class="skill-icon">UI Design</div>
+            <div class="skill-icon">Responsive</div>
+          </div>
+        </div>
+
+        <div class="bento-card reveal">
+          <div class="bento-card__label">Herramientas</div>
+          <div class="skill-icons">
+            <div class="skill-icon">Git</div>
+            <div class="skill-icon">GitHub</div>
+            <div class="skill-icon">VS Code</div>
+            <div class="skill-icon">Docker</div>
+          </div>
+        </div>
+
+        <div class="bento-card bento-card--accent reveal">
+          <div class="bento-card__number">100<span>%</span></div>
+          <p>Compromiso con cada proyecto que tomo</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="projects section" id="proyectos">
+    <div class="container">
+      <div class="section-label">Proyectos</div>
+      <h2 class="section-title">Trabajo <span class="gradient-text">reciente</span></h2>
+      <div class="projects__grid">
+
+        <article class="project-card reveal">
+          <div class="project-card__img">
+            <img src="Imagenes/_DSC1792.jpg" alt="Proyecto 1" />
+            <div class="project-card__overlay">
+              <a href="#" class="btn btn--primary btn--sm">Ver proyecto →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="tag tag--sm">React</span>
+              <span class="tag tag--sm">Node.js</span>
+            </div>
+            <h3>Proyecto 01</h3>
+            <p>Descripción breve del proyecto. Aplicación web moderna con funcionalidades avanzadas.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-card__img">
+            <img src="Imagenes/IMG_2633.jpg" alt="Proyecto 2" />
+            <div class="project-card__overlay">
+              <a href="#" class="btn btn--primary btn--sm">Ver proyecto →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="tag tag--sm">JavaScript</span>
+              <span class="tag tag--sm">CSS</span>
+            </div>
+            <h3>Proyecto 02</h3>
+            <p>Descripción breve del proyecto. Interfaz de usuario con animaciones fluidas y diseño responsivo.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-card__img project-card__img--placeholder">
+            <div class="placeholder-icon">🚀</div>
+            <div class="project-card__overlay">
+              <a href="#" class="btn btn--primary btn--sm">Ver proyecto →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="tag tag--sm">React</span>
+              <span class="tag tag--sm">API</span>
+            </div>
+            <h3>Proyecto 03</h3>
+            <p>Descripción breve del proyecto. Integración con APIs externas y gestión de estado avanzada.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact section" id="contacto">
+    <div class="container">
+      <div class="contact__inner">
+        <div class="blob blob--contact"></div>
+        <div class="section-label">Contacto</div>
+        <h2 class="section-title">¿Tienes un <span class="gradient-text">proyecto en mente?</span></h2>
+        <p class="contact__sub">Estoy disponible para proyectos freelance, colaboraciones y oportunidades de trabajo. ¡Hablemos!</p>
+        <form class="contact__form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="tu@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" rows="5" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Enviar mensaje →</button>
+        </form>
+        <div class="contact__social">
+          <a href="https://github.com/davidacunalopez" target="_blank" class="social-link">GitHub</a>
+          <span class="social-divider">·</span>
+          <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn</a>
+          <span class="social-divider">·</span>
+          <a href="mailto:rodolfoide69@gmail.com" class="social-link">Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="nav__logo">DA<span class="accent">.</span></span>
+        <p>© 2026 David Acuña. Diseñado y desarrollado con ❤️</p>
+        <a href="#inicio" class="footer__back">↑ Volver arriba</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
