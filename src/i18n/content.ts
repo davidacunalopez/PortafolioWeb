@@ -14,12 +14,19 @@ export interface ProjectItem {
   tags: string[];
 }
 
+export interface EventItem {
+  type: string;
+  title: string;
+  place: string;
+}
+
 export interface Content {
   meta: { title: string };
   nav: {
     about: string;
     experience: string;
     projects: string;
+    events: string;
     stack: string;
     contact: string;
     openMenu: string;
@@ -37,10 +44,13 @@ export interface Content {
     heading: string;
     paragraphs: string[];
     facts: { label: string; value: string }[];
+    portraitAlt: string;
   };
   experience: { heading: string; items: ExperienceItem[] };
   projects: { heading: string; items: ProjectItem[] };
+  events: { heading: string; intro: string; items: EventItem[] };
   stack: { heading: string; note: string };
+  ticker: string;
   contact: {
     availability: string;
     heading: string;
@@ -69,6 +79,7 @@ export const content: Record<Lang, Content> = {
       about: 'Sobre mí',
       experience: 'Experiencia',
       projects: 'Proyectos',
+      events: 'Eventos',
       stack: 'Stack',
       contact: 'Contacto',
       openMenu: 'Abrir menú',
@@ -93,6 +104,7 @@ export const content: Record<Lang, Content> = {
         { label: 'Formación', value: 'Ing. en Computación, TEC' },
         { label: 'Actualmente', value: 'Soporte de TI en Masesa' },
       ],
+      portraitAlt: 'Retrato de Rodolfo David Acuña López',
     },
     experience: {
       heading: 'Experiencia',
@@ -132,10 +144,48 @@ export const content: Record<Lang, Content> = {
         },
       ],
     },
+    events: {
+      heading: 'Eventos',
+      intro:
+        'Charlas, hackathons y comunidad. Donde aprendo, comparto y construyo fuera del trabajo.',
+      items: [
+        {
+          type: 'Charla',
+          title: 'Hablando de agentes de IA',
+          place: 'Build Station, Costa Rica',
+        },
+        {
+          type: 'Charla',
+          title: 'Demo en vivo con la comunidad',
+          place: 'Build Station, Costa Rica',
+        },
+        {
+          type: 'Hackathon',
+          title: 'Dev3pack Global Hackathon',
+          place: 'Costa Rica Build Station',
+        },
+        {
+          type: 'Comunidad',
+          title: 'Meetup de Piazza DAO',
+          place: 'Costa Rica',
+        },
+        {
+          type: 'Comunidad',
+          title: 'Encuentro TicoBlockchain',
+          place: 'Costa Rica',
+        },
+        {
+          type: 'Equipo',
+          title: 'Construyendo en equipo',
+          place: 'Hackathon, Build Station',
+        },
+      ],
+    },
     stack: {
       heading: 'Stack técnico',
       note: 'Las herramientas con las que construyo y llevo productos a producción.',
     },
+    ticker: 'IA · AUTOMATIZACIÓN · WEB3 ·',
     contact: {
       availability: 'Disponible para nuevas oportunidades',
       heading: 'Hablemos',
@@ -162,6 +212,7 @@ export const content: Record<Lang, Content> = {
       about: 'About',
       experience: 'Experience',
       projects: 'Projects',
+      events: 'Events',
       stack: 'Stack',
       contact: 'Contact',
       openMenu: 'Open menu',
@@ -186,6 +237,7 @@ export const content: Record<Lang, Content> = {
         { label: 'Education', value: 'Computer Engineering, TEC' },
         { label: 'Currently', value: 'IT Support at Masesa' },
       ],
+      portraitAlt: 'Portrait of Rodolfo David Acuña López',
     },
     experience: {
       heading: 'Experience',
@@ -225,10 +277,47 @@ export const content: Record<Lang, Content> = {
         },
       ],
     },
+    events: {
+      heading: 'Events',
+      intro: 'Talks, hackathons and community. Where I learn, share and build outside of work.',
+      items: [
+        {
+          type: 'Talk',
+          title: 'Speaking about AI agents',
+          place: 'Build Station, Costa Rica',
+        },
+        {
+          type: 'Talk',
+          title: 'Live demo with the community',
+          place: 'Build Station, Costa Rica',
+        },
+        {
+          type: 'Hackathon',
+          title: 'Dev3pack Global Hackathon',
+          place: 'Costa Rica Build Station',
+        },
+        {
+          type: 'Community',
+          title: 'Piazza DAO meetup',
+          place: 'Costa Rica',
+        },
+        {
+          type: 'Community',
+          title: 'TicoBlockchain gathering',
+          place: 'Costa Rica',
+        },
+        {
+          type: 'Team',
+          title: 'Building as a team',
+          place: 'Hackathon, Build Station',
+        },
+      ],
+    },
     stack: {
       heading: 'Tech stack',
       note: 'The tools I use to build and ship products to production.',
     },
+    ticker: 'AI · AUTOMATION · WEB3 ·',
     contact: {
       availability: 'Open to new opportunities',
       heading: "Let's talk",

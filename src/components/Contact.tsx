@@ -9,6 +9,7 @@ import {
 import { useLanguage } from '../i18n/LanguageContext';
 import { socialLinks } from '../i18n/content';
 import { subscribe, subscribeConfigured } from '../lib/subscribe';
+import { Magnetic } from './ui/Magnetic';
 import { Reveal } from './ui/Reveal';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error' | 'invalid';
@@ -71,16 +72,17 @@ export function Contact() {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   {socials.map(({ label, href, Icon }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn btn-ghost h-11 px-5 text-sm"
-                    >
-                      <Icon size={18} aria-hidden />
-                      {label}
-                    </a>
+                    <Magnetic key={label}>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-ghost h-11 px-5 text-sm"
+                      >
+                        <Icon size={18} aria-hidden />
+                        {label}
+                      </a>
+                    </Magnetic>
                   ))}
                 </div>
                 <a

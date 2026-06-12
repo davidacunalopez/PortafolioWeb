@@ -37,6 +37,24 @@ El formulario envía `POST` con JSON: `{ "email": "...", "lang": "es" | "en", "s
 2. Vercel detecta Vite automáticamente (build `npm run build`, output `dist/`). No necesita configuración extra.
 3. Agrega `VITE_N8N_WEBHOOK_URL` en **Settings → Environment Variables** y redeploy.
 
+## ¿Demasiados efectos? Volver a "Premium equilibrado"
+
+La página corre en modo "wow máximo": cursor personalizado, tipografía gigante entre secciones, galería de Eventos con scroll horizontal y barra de progreso. Si lo prefieres más sobrio, cambia una línea en `src/config/effects.ts`:
+
+```ts
+export const EFFECTS_LEVEL: EffectsLevel = 'balanced';
+```
+
+Eso desactiva los efectos anteriores y deja los sobrios (smooth scroll, reveals, parallax, spotlight en cards, marquee del stack, botones magnéticos). La sección Eventos pasa a ser un carrusel deslizable normal.
+
+## Optimizar fotos nuevas
+
+Los originales viven en `Images/` y los WebP optimizados en `src/assets/photos/`. Si agregas o cambias fotos, edita la lista en `scripts/optimize-images.mjs` y corre:
+
+```bash
+node scripts/optimize-images.mjs
+```
+
 ## Pendientes opcionales
 
 - **Imagen Open Graph**: agregar `public/og.png` (1200×630) y la meta `og:image` en `index.html` para que el link se vea bien al compartirlo en redes.

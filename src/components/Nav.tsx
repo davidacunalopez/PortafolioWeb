@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion, useScroll, useMotionValueEve
 import { ListIcon, XIcon } from '@phosphor-icons/react';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const sections = ['about', 'experience', 'projects', 'stack', 'contact'] as const;
+const sections = ['about', 'experience', 'projects', 'events', 'stack', 'contact'] as const;
 
 export function Nav() {
   const { t, lang, toggle } = useLanguage();
@@ -34,6 +34,7 @@ export function Nav() {
     about: t.nav.about,
     experience: t.nav.experience,
     projects: t.nav.projects,
+    events: t.nav.events,
     stack: t.nav.stack,
     contact: t.nav.contact,
   };
