@@ -1,0 +1,114 @@
+<!-- @dsCard group="Components" viewport="700x900" name="Core primitives" subtitle="Button · Tag · Badge · Card · Input · Stat · SkillBar · Avatar" -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); padding: 28px; }
+  .group { margin-bottom: 26px; }
+  .gh { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { Button, Tag, Badge, Card, Input, Textarea, SectionLabel, GradientText,
+            StatBlock, StatDivider, SkillBar, Avatar } = window.AcuAPortfolioDesignSystem_96f72c;
+
+    function Group({ title, children }) {
+      return (
+        <div className="group">
+          <div className="gh">{title}</div>
+          {children}
+        </div>
+      );
+    }
+
+    function Demo() {
+      return (
+        <div>
+          <Group title="Buttons">
+            <div className="row">
+              <Button variant="primary">Ver proyectos</Button>
+              <Button variant="ghost">Hablemos →</Button>
+              <Button variant="secondary">Secundario</Button>
+              <Button variant="primary" size="sm">Ver →</Button>
+              <Button variant="primary" disabled>Disabled</Button>
+            </div>
+          </Group>
+
+          <Group title="Section label + gradient heading">
+            <SectionLabel>Proyectos</SectionLabel>
+            <h2 style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-h1)',fontWeight:700,margin:'12px 0 0'}}>
+              Trabajo <GradientText>reciente</GradientText>
+            </h2>
+          </Group>
+
+          <Group title="Tags & badges">
+            <div className="row" style={{marginBottom:'12px'}}>
+              <Tag>JavaScript</Tag><Tag>React</Tag><Tag>Node.js</Tag><Tag size="sm">CSS</Tag>
+            </div>
+            <div className="row">
+              <Badge tone="info" dot>Disponible para trabajar</Badge>
+              <Badge tone="accent">Frontend</Badge>
+              <Badge tone="pink">IA</Badge>
+            </div>
+          </Group>
+
+          <Group title="Stats">
+            <Card hover={false} padding="1.2rem 1.5rem" style={{width:'fit-content'}}>
+              <div className="row" style={{gap:'1.5rem'}}>
+                <StatBlock value="+10" label="Proyectos" />
+                <StatDivider />
+                <StatBlock value="3+" label="Años exp." />
+                <StatDivider />
+                <StatBlock value="100%" label="Dedicación" />
+              </div>
+            </Card>
+          </Group>
+
+          <Group title="Cards & skill bars">
+            <div style={{display:'grid',gridTemplateColumns:'1.4fr 1fr',gap:'12px'}}>
+              <Card>
+                <div style={{fontSize:'var(--fs-label)',fontWeight:600,textTransform:'uppercase',letterSpacing:'0.1em',color:'var(--accent)',marginBottom:'1rem'}}>Frontend</div>
+                <div style={{display:'flex',flexDirection:'column',gap:'1rem'}}>
+                  <SkillBar label="HTML / CSS" value={95} />
+                  <SkillBar label="JavaScript" value={85} />
+                  <SkillBar label="React" value={80} />
+                </div>
+              </Card>
+              <Card accent>
+                <GradientText as="div" style={{fontFamily:'var(--font-display)',fontSize:'3rem',fontWeight:800,lineHeight:1}}>100</GradientText>
+                <p style={{color:'var(--text-muted)',fontSize:'var(--fs-sm)',marginTop:'.5rem'}}>Compromiso con cada proyecto</p>
+              </Card>
+            </div>
+          </Group>
+
+          <Group title="Form fields">
+            <Card hover={false}>
+              <Input label="Nombre" placeholder="Tu nombre" />
+              <Textarea label="Mensaje" rows={3} placeholder="Cuéntame sobre tu proyecto..." />
+              <Button variant="primary" full>Enviar mensaje →</Button>
+            </Card>
+          </Group>
+
+          <Group title="Avatar">
+            <div className="row" style={{gap:'24px'}}>
+              <Avatar src="../../assets/perfil.jpg" alt="David" size={88} ring />
+              <Avatar src="../../assets/photo-1251.jpg" alt="David" size={64} />
+              <Avatar src="../../assets/photo-1792.jpg" alt="David" size={64} radius="var(--radius-pill)" />
+            </div>
+          </Group>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+  </script>
+</body>
+</html>

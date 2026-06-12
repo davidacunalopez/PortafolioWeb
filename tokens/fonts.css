@@ -1,0 +1,7 @@
+/* ===========================================================================
+   FONTS — Acuña Portfolio
+   Space Grotesk (display / headings) + Inter (body / UI).
+   Both are the exact families used in the source portfolio and are served
+   from Google Fonts, so no local binaries or substitutions are required.
+   =========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');

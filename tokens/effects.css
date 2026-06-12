@@ -1,0 +1,19 @@
+/* ===========================================================================
+   EFFECTS — Acuña Portfolio
+   The tri-stop brand gradient and its variants. Used for text fills, button
+   fills, ring decorations, soft tinted card washes and glow accents.
+   =========================================================================== */
+:root {
+  /* The signature gradient — morado → rosa → cyan, 135deg. */
+  --gradient: linear-gradient(135deg, #6c63ff 0%, #f72585 50%, #4cc9f0 100%); /* @kind color */
+  --gradient-accent: linear-gradient(135deg, #4cc9f0, #6c63ff); /* @kind color */
+
+  /* Soft tinted wash for "accent" cards (low-opacity gradient fill). */
+  --gradient-soft: linear-gradient(135deg, rgba(108, 99, 255, 0.20), rgba(247, 37, 133, 0.20)); /* @kind color */
+
+  /* Faint grid overlay used on hero / large surfaces. */
+  --grid-overlay:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px); /* @kind other */
+  --grid-size: 60px 60px; /* @kind other */
+}

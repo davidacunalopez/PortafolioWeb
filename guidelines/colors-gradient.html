@@ -1,0 +1,24 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Signature gradient" subtitle="135° morado → rosa → cyan — the brand's one gradient" -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-2); color: var(--text); font-family: var(--font-body); padding: 24px; }
+  .bar { height: 72px; border-radius: var(--radius); background: var(--gradient); }
+  .stops { display: flex; justify-content: space-between; margin-top: 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted); }
+  .stops span b { color: var(--text); font-weight: 600; }
+  .tok { margin-top: 6px; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="bar"></div>
+  <div class="stops">
+    <span><b>#6c63ff</b> · 0%</span>
+    <span><b>#f72585</b> · 50%</span>
+    <span><b>#4cc9f0</b> · 100%</span>
+  </div>
+  <div class="tok">--gradient · linear-gradient(135deg, …)</div>
+</body>
+</html>

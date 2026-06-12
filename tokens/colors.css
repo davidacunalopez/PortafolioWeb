@@ -1,0 +1,48 @@
+/* ===========================================================================
+   COLORS — Acuña Portfolio
+   A deep, near-black dark theme lit by three vibrant accents (morado / rosa /
+   cyan) that almost always appear together as the signature tri-stop gradient.
+   Neutrals are cool-tinted (blue-leaning), never pure black or pure gray.
+   =========================================================================== */
+:root {
+  /* --- Base canvas -------------------------------------------------------- */
+  --bg: #080b12;            /* page background — near-black, blue-tinted      */
+  --bg-2: #0d1117;          /* raised background / alternate sections         */
+  --bg-3: #11151f;          /* deepest inset wells                            */
+
+  /* --- Glass surfaces (translucent, sit on the dark canvas) --------------- */
+  --surface: rgba(255, 255, 255, 0.04);        /* default card / glass        */
+  --surface-hover: rgba(255, 255, 255, 0.08);  /* hovered glass               */
+  --surface-strong: rgba(255, 255, 255, 0.12); /* pressed / active glass      */
+  --border: rgba(255, 255, 255, 0.08);         /* hairline on glass           */
+  --border-strong: rgba(255, 255, 255, 0.16);  /* hover hairline              */
+
+  /* --- Text --------------------------------------------------------------- */
+  --text: #e8eaf0;          /* primary copy — soft white, never #fff          */
+  --text-strong: #ffffff;   /* headings / emphasis on glass                   */
+  --text-muted: #8892a4;    /* secondary copy, labels, captions               */
+  --text-faint: rgba(136, 146, 164, 0.5);      /* placeholders / disabled     */
+
+  /* --- Brand accents ------------------------------------------------------ */
+  --accent: #6c63ff;        /* morado — primary brand color                   */
+  --accent-2: #f72585;      /* rosa — energy / highlight                      */
+  --accent-3: #4cc9f0;      /* cyan — "available" / info                      */
+
+  /* Accent tints (for soft pill backgrounds, focus rings, glows) */
+  --accent-soft: rgba(108, 99, 255, 0.10);
+  --accent-ring: rgba(108, 99, 255, 0.15);
+  --accent-border: rgba(108, 99, 255, 0.30);
+  --accent-2-soft: rgba(247, 37, 133, 0.10);
+  --accent-3-soft: rgba(76, 201, 240, 0.10);
+  --accent-3-border: rgba(76, 201, 240, 0.25);
+
+  /* --- Semantic aliases --------------------------------------------------- */
+  --surface-card: var(--surface);
+  --surface-nav: rgba(8, 11, 18, 0.70);        /* blurred floating nav        */
+  --surface-float: rgba(8, 11, 18, 0.85);      /* floating glass chips        */
+  --text-body: var(--text);
+  --text-heading: var(--text-strong);
+  --color-link: var(--accent);
+  --color-success: var(--accent-3);
+  --focus-ring: var(--accent-ring);
+}
