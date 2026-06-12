@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/geist';
+
+/*
+  Sistema de forma y color (bloqueado para toda la página):
+  - Tema: oscuro único, sin inversión por sección.
+  - Acento: cian, único en toda la página.
+  - Radios: botones y chips = pill; tarjetas y paneles = 16px; inputs = 12px.
+*/
+@theme {
+  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: oklch(15% 0.025 255);
+  --color-surface: oklch(18.5% 0.027 255);
+  --color-ink: oklch(93% 0.012 240);
+  --color-muted: oklch(74% 0.022 245);
+  --color-accent: oklch(85% 0.124 195);
+  --color-line: oklch(93% 0.012 240 / 10%);
+
+  --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: oklch(85% 0.124 195 / 30%);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+@utility glass {
+  background: oklch(93% 0.012 240 / 4%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid oklch(93% 0.012 240 / 9%);
+  box-shadow: inset 0 1px 0 oklch(93% 0.012 240 / 6%);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: var(--color-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 3rem;
+    padding-inline: 1.625rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: transform 160ms var(--ease-snap), background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: oklch(18% 0.03 250);
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--color-line);
+    color: var(--color-ink);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+      background-color: oklch(89% 0.11 195);
+    }
+
+    .btn-ghost:hover {
+      border-color: oklch(93% 0.012 240 / 24%);
+      background-color: oklch(93% 0.012 240 / 4%);
+    }
+  }
+}
