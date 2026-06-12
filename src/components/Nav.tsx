@@ -9,10 +9,27 @@ export function Nav() {
   const { t, lang, toggle } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
   const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', (y) => setScrolled(y > 16));
+
+  useEffect(() => {
+    const els = sections
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -55,9 +72,18 @@ export function Nav() {
             <a
               key={id}
               href={`#${id}`}
-              className="text-sm text-muted transition-colors duration-150 hover:text-ink"
+              className={`relative text-sm transition-colors duration-150 ${
+                activeSection === id ? 'text-ink' : 'text-muted hover:text-ink'
+              }`}
             >
               {labels[id]}
+              {activeSection === id && (
+                <motion.span
+                  layoutId="nav-active"
+                  className="absolute -bottom-0.5 left-0 right-0 h-px rounded-full bg-accent"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
             </a>
           ))}
           <button

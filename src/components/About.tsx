@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { Counter } from './ui/Counter';
 import { Reveal } from './ui/Reveal';
 import { SplitText } from './ui/SplitText';
 import perfil from '../assets/photos/perfil.webp';
@@ -53,6 +54,19 @@ export function About() {
           </div>
 
           <div>
+            <Reveal>
+              <dl className="mb-10 grid grid-cols-3 gap-6 border-b border-line pb-10">
+                {t.about.stats.map((stat) => (
+                  <div key={stat.label}>
+                    <dt className="font-display text-4xl font-semibold tracking-tight text-ink">
+                      <Counter to={stat.value} suffix={stat.suffix} />
+                    </dt>
+                    <dd className="mt-1 text-sm leading-snug text-muted">{stat.label}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+
             {t.about.paragraphs.map((paragraph, i) => (
               <Reveal key={i} delay={i * 0.06}>
                 <p className={`max-w-[65ch] text-lg leading-relaxed text-muted ${i > 0 ? 'mt-5' : ''}`}>

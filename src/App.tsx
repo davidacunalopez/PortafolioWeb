@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { AnimatePresence } from 'motion/react';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { SmoothScroll } from './components/SmoothScroll';
 import { Nav } from './components/Nav';
@@ -11,13 +13,30 @@ import { BigType } from './components/BigType';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Aurora } from './components/ui/Aurora';
+import { BackToTop } from './components/ui/BackToTop';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { Grain } from './components/ui/Grain';
+import { Preloader } from './components/ui/Preloader';
 import { ScrollProgress } from './components/ui/ScrollProgress';
 
 export default function App() {
+  const [preloaderDone, setPreloaderDone] = useState(
+    () => typeof window !== 'undefined' && !!sessionStorage.getItem('preloader_shown'),
+  );
+
   return (
     <LanguageProvider>
+      <AnimatePresence>
+        {!preloaderDone && (
+          <Preloader
+            key="preloader"
+            onDone={() => {
+              sessionStorage.setItem('preloader_shown', '1');
+              setPreloaderDone(true);
+            }}
+          />
+        )}
+      </AnimatePresence>
       <SmoothScroll>
         <Aurora />
         <ScrollProgress />
@@ -35,6 +54,7 @@ export default function App() {
           <Contact />
         </main>
         <Footer />
+        <BackToTop />
       </SmoothScroll>
     </LanguageProvider>
   );

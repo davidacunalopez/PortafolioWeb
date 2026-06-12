@@ -44,6 +44,7 @@ export interface Content {
     heading: string;
     paragraphs: string[];
     facts: { label: string; value: string }[];
+    stats: { value: number; suffix: string; label: string }[];
     portraitAlt: string;
   };
   experience: { heading: string; items: ExperienceItem[] };
@@ -103,6 +104,11 @@ export const content: Record<Lang, Content> = {
         { label: 'Ubicación', value: 'Cartago, Costa Rica' },
         { label: 'Formación', value: 'Ing. en Computación, TEC' },
         { label: 'Actualmente', value: 'Soporte de TI en Masesa' },
+      ],
+      stats: [
+        { value: 35, suffix: '', label: 'usuarios en Odoo' },
+        { value: 15, suffix: '+', label: 'módulos personalizados' },
+        { value: 2, suffix: '', label: 'agentes en producción' },
       ],
       portraitAlt: 'Retrato de Rodolfo David Acuña López',
     },
@@ -236,6 +242,11 @@ export const content: Record<Lang, Content> = {
         { label: 'Location', value: 'Cartago, Costa Rica' },
         { label: 'Education', value: 'Computer Engineering, TEC' },
         { label: 'Currently', value: 'IT Support at Masesa' },
+      ],
+      stats: [
+        { value: 35, suffix: '', label: 'Odoo users' },
+        { value: 15, suffix: '+', label: 'custom modules' },
+        { value: 2, suffix: '', label: 'AI agents in production' },
       ],
       portraitAlt: 'Portrait of Rodolfo David Acuña López',
     },
