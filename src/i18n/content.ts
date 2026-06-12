@@ -44,7 +44,6 @@ export interface Content {
     heading: string;
     paragraphs: string[];
     facts: { label: string; value: string }[];
-    stats: { value: number; suffix: string; label: string }[];
     portraitAlt: string;
   };
   experience: { heading: string; items: ExperienceItem[] };
@@ -90,25 +89,20 @@ export const content: Record<Lang, Content> = {
     hero: {
       name: 'Rodolfo David Acuña López',
       title: 'Desarrollador de Agentes de IA & Automatización',
-      tagline: 'Construyo agentes de IA que trabajan en producción, no solo en demos.',
+      tagline: 'Construyo agentes de IA para tus trabajos diarios.',
       ctaPrimary: 'Hablemos',
       ctaSecondary: 'Ver proyectos',
     },
     about: {
       heading: 'Sobre mí',
       paragraphs: [
-        'Soy estudiante de último año de Ingeniería en Computación en el TEC (Cartago, Costa Rica) y desarrollador full-stack con Python, JavaScript, TypeScript, React y Node.js.',
-        'Mi enfoque es práctico: resolver problemas reales de negocio, desde el diseño hasta la producción, validando cada solución con los stakeholders que la usan todos los días.',
+        'Estudiante de último año de Ingeniería en Computación en el TEC y desarrollador Full-Stack con experiencia en Python, JavaScript, TypeScript, React y Node.js.',
+        'Mi enfoque está centrado en resolver problemas reales de negocio mediante soluciones prácticas de software, desde el diseño hasta la producción, asegurando el valor en cada entrega junto a los stakeholders.',
       ],
       facts: [
         { label: 'Ubicación', value: 'Cartago, Costa Rica' },
         { label: 'Formación', value: 'Ing. en Computación, TEC' },
         { label: 'Actualmente', value: 'Soporte de TI en Masesa' },
-      ],
-      stats: [
-        { value: 35, suffix: '', label: 'usuarios en Odoo' },
-        { value: 15, suffix: '+', label: 'módulos personalizados' },
-        { value: 2, suffix: '', label: 'agentes en producción' },
       ],
       portraitAlt: 'Retrato de Rodolfo David Acuña López',
     },
@@ -116,11 +110,11 @@ export const content: Record<Lang, Content> = {
       heading: 'Experiencia',
       items: [
         {
-          role: 'Desarrollador de Agente de IA, Práctica Profesional',
+          role: 'Desarrollador de Agente de IA',
           company: 'Masesa',
           period: 'Feb 2026 - May 2026',
           description:
-            'Diseñé e implementé de extremo a extremo un agente de ventas con IA que procesa órdenes de venta reales en producción. El catálogo completo vive como embeddings vectoriales para búsqueda semántica y creación automática de órdenes por lenguaje natural.',
+            'Diseñé e implementé de extremo a extremo un agente de ventas con IA que procesa órdenes de venta para el uso interno de la empresa reduciendo significativamente el tiempo de procesamiento.',
           tags: ['Odoo v18', 'n8n', 'Supabase', 'OpenAI'],
         },
         {
@@ -228,25 +222,20 @@ export const content: Record<Lang, Content> = {
     hero: {
       name: 'Rodolfo David Acuña López',
       title: 'AI Agent & Automation Developer',
-      tagline: 'I build AI agents that work in production, not just in demos.',
+      tagline: 'I build AI agents for your daily work.',
       ctaPrimary: "Let's talk",
       ctaSecondary: 'View projects',
     },
     about: {
       heading: 'About me',
       paragraphs: [
-        "I'm a final-year Computer Engineering student at TEC (Cartago, Costa Rica) and a full-stack developer working with Python, JavaScript, TypeScript, React and Node.js.",
-        'My approach is practical: solving real business problems from design to production, validating every solution with the stakeholders who use it every day.',
+        'Final-year Computer Engineering student at TEC and full-stack developer with experience in Python, JavaScript, TypeScript, React and Node.js.',
+        'My focus is on solving real business problems through practical software solutions, from design to production, ensuring value in every delivery alongside stakeholders.',
       ],
       facts: [
         { label: 'Location', value: 'Cartago, Costa Rica' },
         { label: 'Education', value: 'Computer Engineering, TEC' },
         { label: 'Currently', value: 'IT Support at Masesa' },
-      ],
-      stats: [
-        { value: 35, suffix: '', label: 'Odoo users' },
-        { value: 15, suffix: '+', label: 'custom modules' },
-        { value: 2, suffix: '', label: 'AI agents in production' },
       ],
       portraitAlt: 'Portrait of Rodolfo David Acuña López',
     },
@@ -254,11 +243,11 @@ export const content: Record<Lang, Content> = {
       heading: 'Experience',
       items: [
         {
-          role: 'AI Agent Developer, Professional Internship',
+          role: 'AI Agent Developer',
           company: 'Masesa',
           period: 'Feb 2026 - May 2026',
           description:
-            'Designed and implemented an end-to-end AI sales agent that processes real sales orders in production. The full catalog is stored as vector embeddings for semantic search and automatic order creation from natural language.',
+            'Designed and implemented an end-to-end AI sales agent that processes sales orders for internal company use, significantly reducing processing time.',
           tags: ['Odoo v18', 'n8n', 'Supabase', 'OpenAI'],
         },
         {
