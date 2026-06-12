@@ -45,15 +45,6 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[100dvh] items-center overflow-hidden"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(56rem 36rem at 78% 8%, oklch(85% 0.124 195 / 9%), transparent 65%)',
-        }}
-      />
-
       {sceneReady && (
         <Suspense fallback={null}>
           <HeroScene />

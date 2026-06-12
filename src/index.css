@@ -4,20 +4,21 @@
 
 /*
   Sistema de forma y color (bloqueado para toda la página):
-  - Tema: oscuro único, sin inversión por sección.
-  - Acento: cian, único en toda la página.
+  - Tema: "aurora violeta", oscuro único, sin inversión por sección.
+  - Acentos: familia violeta (principal) + azul eléctrico (solo glows/degradados, nunca texto).
   - Radios: botones y chips = pill; tarjetas y paneles = 16px; inputs = 12px.
 */
 @theme {
   --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
 
-  --color-bg: oklch(15% 0.025 255);
-  --color-surface: oklch(18.5% 0.027 255);
-  --color-ink: oklch(93% 0.012 240);
-  --color-muted: oklch(74% 0.022 245);
-  --color-accent: oklch(85% 0.124 195);
-  --color-line: oklch(93% 0.012 240 / 10%);
+  --color-bg: oklch(13% 0.03 295);
+  --color-surface: oklch(16.5% 0.035 295);
+  --color-ink: oklch(94% 0.015 300);
+  --color-muted: oklch(73% 0.035 300);
+  --color-accent: oklch(76% 0.17 300);
+  --color-accent2: oklch(70% 0.16 265);
+  --color-line: oklch(94% 0.015 300 / 10%);
 
   --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -58,7 +59,7 @@ body {
 }
 
 ::selection {
-  background-color: oklch(85% 0.124 195 / 30%);
+  background-color: oklch(76% 0.17 300 / 32%);
 }
 
 :focus-visible {
@@ -80,11 +81,11 @@ h3 {
 }
 
 @utility glass {
-  background: oklch(93% 0.012 240 / 4%);
+  background: oklch(94% 0.015 300 / 4%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid oklch(93% 0.012 240 / 9%);
-  box-shadow: inset 0 1px 0 oklch(93% 0.012 240 / 6%);
+  border: 1px solid oklch(94% 0.015 300 / 9%);
+  box-shadow: inset 0 1px 0 oklch(94% 0.015 300 / 6%);
 }
 
 @media (prefers-reduced-transparency: reduce) {
@@ -115,7 +116,8 @@ h3 {
 
   .btn-primary {
     background-color: var(--color-accent);
-    color: oklch(18% 0.03 250);
+    color: oklch(17% 0.05 300);
+    box-shadow: 0 0 24px oklch(76% 0.17 300 / 28%);
   }
 
   .btn-ghost {
@@ -125,12 +127,13 @@ h3 {
 
   @media (hover: hover) and (pointer: fine) {
     .btn-primary:hover {
-      background-color: oklch(89% 0.11 195);
+      background-color: oklch(81% 0.15 300);
+      box-shadow: 0 0 32px oklch(76% 0.17 300 / 40%);
     }
 
     .btn-ghost:hover {
-      border-color: oklch(93% 0.012 240 / 24%);
-      background-color: oklch(93% 0.012 240 / 4%);
+      border-color: oklch(94% 0.015 300 / 24%);
+      background-color: oklch(94% 0.015 300 / 4%);
     }
   }
 
@@ -170,5 +173,64 @@ h3 {
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* Fondo aurora: blobs de luz que derivan lentamente detras del contenido */
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+}
+
+.aurora-1 {
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--color-accent) 13%, transparent),
+    transparent 68%
+  );
+  animation: aurora-drift-1 38s ease-in-out infinite alternate;
+}
+
+.aurora-2 {
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--color-accent2) 11%, transparent),
+    transparent 68%
+  );
+  animation: aurora-drift-2 46s ease-in-out infinite alternate;
+}
+
+.aurora-3 {
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, oklch(68% 0.19 320) 10%, transparent),
+    transparent 68%
+  );
+  animation: aurora-drift-3 52s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift-1 {
+  to {
+    transform: translate3d(-7%, 6%, 0) scale(1.18);
+  }
+}
+
+@keyframes aurora-drift-2 {
+  to {
+    transform: translate3d(8%, -5%, 0) scale(1.12);
+  }
+}
+
+@keyframes aurora-drift-3 {
+  to {
+    transform: translate3d(-5%, -7%, 0) scale(1.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-1,
+  .aurora-2,
+  .aurora-3 {
+    animation: none;
   }
 }

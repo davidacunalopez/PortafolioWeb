@@ -38,14 +38,16 @@ const VERTEX = /* glsl */ `
 `;
 
 const FRAGMENT = /* glsl */ `
-  uniform vec3 uColor;
+  uniform vec3 uColorA;
+  uniform vec3 uColorB;
   varying float vAlpha;
   varying float vRand;
 
   void main() {
     float d = length(gl_PointCoord - 0.5);
     float alpha = smoothstep(0.5, 0.12, d) * vAlpha;
-    vec3 color = mix(uColor * 0.5, uColor, vRand);
+    vec3 base = mix(uColorB, uColorA, vRand);
+    vec3 color = base * (0.55 + 0.45 * vRand);
     gl_FragColor = vec4(color, alpha);
   }
 `;
@@ -91,7 +93,8 @@ function Particles({ dense }: { dense: boolean }) {
         uTime: { value: 0 },
         uMouse: { value: new THREE.Vector2(99, 99) },
         uPixelRatio: { value: Math.min(window.devicePixelRatio, 1.5) },
-        uColor: { value: new THREE.Color('#7be0ef') },
+        uColorA: { value: new THREE.Color('#b78cff') },
+        uColorB: { value: new THREE.Color('#7a8cff') },
       },
     });
 

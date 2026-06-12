@@ -24,7 +24,7 @@ export function TiltCard({ children, className }: TiltCardProps) {
   const rotateY = useSpring(0, { stiffness: 200, damping: 20, mass: 0.4 });
   const spotX = useMotionValue(50);
   const spotY = useMotionValue(35);
-  const spotlight = useMotionTemplate`radial-gradient(26rem circle at ${spotX}% ${spotY}%, oklch(85% 0.124 195 / 7%), transparent 65%)`;
+  const spotlight = useMotionTemplate`radial-gradient(26rem circle at ${spotX}% ${spotY}%, color-mix(in oklab, var(--color-accent) 8%, transparent), transparent 65%)`;
 
   const enabled = fine && !reduceMotion;
 

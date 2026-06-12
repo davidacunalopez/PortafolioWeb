@@ -47,15 +47,6 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative scroll-mt-24 overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(48rem 30rem at 18% 90%, oklch(85% 0.124 195 / 7%), transparent 65%)',
-        }}
-      />
-
       <div className="relative mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
         <Reveal>
           <div className="glass rounded-2xl p-7 md:p-12">

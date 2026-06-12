@@ -33,7 +33,7 @@ export function Projects() {
                 className="h-full rounded-2xl border border-line p-7 md:p-9"
                 style={{
                   background:
-                    'linear-gradient(135deg, oklch(85% 0.124 195 / 8%), transparent 55%), var(--color-surface)',
+                    'linear-gradient(135deg, color-mix(in oklab, var(--color-accent) 9%, transparent), transparent 55%), var(--color-surface)',
                 }}
               >
                 <h3 className="font-display text-2xl font-semibold tracking-tight">{trackify.name}</h3>

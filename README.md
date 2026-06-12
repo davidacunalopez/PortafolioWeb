@@ -1,6 +1,6 @@
 # Portafolio | Rodolfo David Acuña López
 
-Landing page de portafolio personal. Diseño oscuro con acento cian, bilingüe (ES/EN) y formulario de suscripción conectado a n8n.
+Landing page de portafolio personal. Diseño oscuro "aurora" en negro-violeta con acentos violeta y azul eléctrico, bilingüe (ES/EN) y formulario de suscripción conectado a n8n.
 
 **Stack:** Vite + React 19 + TypeScript + Tailwind CSS v4 + Motion.
 

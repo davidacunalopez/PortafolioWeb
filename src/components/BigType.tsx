@@ -37,7 +37,7 @@ export function BigType() {
       <motion.p
         className="whitespace-nowrap font-display text-[clamp(4.5rem,11vw,8.5rem)] font-bold leading-none tracking-tight text-transparent"
         style={{
-          WebkitTextStroke: '1px oklch(93% 0.012 240 / 22%)',
+          WebkitTextStroke: '1px oklch(94% 0.015 300 / 22%)',
           ...(reduceMotion ? {} : { x, skewX }),
         }}
       >

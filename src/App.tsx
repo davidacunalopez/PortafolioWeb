@@ -10,6 +10,7 @@ import { TechStack } from './components/TechStack';
 import { BigType } from './components/BigType';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { Aurora } from './components/ui/Aurora';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { Grain } from './components/ui/Grain';
 import { ScrollProgress } from './components/ui/ScrollProgress';
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <SmoothScroll>
+        <Aurora />
         <ScrollProgress />
         <CustomCursor />
         <Grain />
