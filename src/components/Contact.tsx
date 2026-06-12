@@ -53,7 +53,10 @@ export function Contact() {
             <div className="grid gap-12 md:grid-cols-2 md:gap-16">
               <div>
                 <p className="inline-flex items-center gap-2 rounded-full border border-line px-3.5 py-1.5 text-sm text-muted">
-                  <span aria-hidden className="size-2 rounded-full bg-[oklch(78%_0.17_150)]" />
+                  <span
+                    aria-hidden
+                    className="size-2 animate-pulse rounded-full bg-[oklch(78%_0.17_150)] shadow-[0_0_8px_oklch(78%_0.17_150/60%)] motion-reduce:animate-none"
+                  />
                   {t.contact.availability}
                 </p>
                 <h2 className="mt-6 font-display text-3xl font-semibold tracking-tight md:text-4xl">

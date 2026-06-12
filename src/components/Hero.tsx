@@ -51,13 +51,6 @@ export function Hero() {
         </Suspense>
       )}
 
-      {/* Funde las particulas con el fondo antes de la siguiente seccion */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
-        style={{ background: 'linear-gradient(to bottom, transparent, var(--color-bg))' }}
-      />
-
       <motion.div
         className="relative mx-auto w-full max-w-6xl px-5 pt-16 md:px-8"
         initial="hidden"

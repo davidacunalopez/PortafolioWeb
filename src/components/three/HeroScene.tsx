@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import type { RefObject } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -54,7 +55,12 @@ const FRAGMENT = /* glsl */ `
 
 const PLANE = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
 
-function Particles({ dense }: { dense: boolean }) {
+interface ParticlesProps {
+  dense: boolean;
+  pointerNdc: RefObject<THREE.Vector2>;
+}
+
+function Particles({ dense, pointerNdc }: ParticlesProps) {
   const matRef = useRef<THREE.ShaderMaterial>(null);
   const target = useRef(new THREE.Vector2(99, 99));
   const hit = useRef(new THREE.Vector3());
@@ -113,7 +119,7 @@ function Particles({ dense }: { dense: boolean }) {
     if (!mat) return;
     mat.uniforms.uTime.value += delta;
 
-    state.raycaster.setFromCamera(state.pointer, state.camera);
+    state.raycaster.setFromCamera(pointerNdc.current, state.camera);
     if (state.raycaster.ray.intersectPlane(PLANE, hit.current)) {
       target.current.set(hit.current.x, hit.current.z);
     }
@@ -129,6 +135,10 @@ function Particles({ dense }: { dense: boolean }) {
 export default function HeroScene() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(true);
+  /* NDC del puntero calculado a mano con clientX/clientY globales: el pointer
+     de R3F usa offsetX relativo al elemento bajo el cursor y salta al pasar
+     sobre el titulo o los botones. */
+  const pointerNdc = useRef(new THREE.Vector2(99, 99));
   const dense = useMemo(
     () => window.matchMedia('(min-width: 768px)').matches,
     [],
@@ -145,8 +155,30 @@ export default function HeroScene() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    function onMove(e: PointerEvent) {
+      const rect = el!.getBoundingClientRect();
+      pointerNdc.current.set(
+        ((e.clientX - rect.left) / rect.width) * 2 - 1,
+        -(((e.clientY - rect.top) / rect.height) * 2 - 1),
+      );
+    }
+    window.addEventListener('pointermove', onMove, { passive: true });
+    return () => window.removeEventListener('pointermove', onMove);
+  }, []);
+
   return (
-    <div ref={wrapRef} aria-hidden className="absolute inset-0">
+    <div
+      ref={wrapRef}
+      aria-hidden
+      className="absolute inset-0"
+      style={{
+        maskImage: 'linear-gradient(to bottom, black 72%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, black 72%, transparent 100%)',
+      }}
+    >
       <Canvas
         frameloop={inView ? 'always' : 'never'}
         dpr={[1, 1.5]}
@@ -154,9 +186,8 @@ export default function HeroScene() {
         gl={{ alpha: true, antialias: false, powerPreference: 'low-power' }}
         onCreated={({ camera }) => camera.lookAt(0, -0.4, 0)}
         style={{ pointerEvents: 'none' }}
-        eventSource={document.body}
       >
-        <Particles dense={dense} />
+        <Particles dense={dense} pointerNdc={pointerNdc} />
       </Canvas>
     </div>
   );
